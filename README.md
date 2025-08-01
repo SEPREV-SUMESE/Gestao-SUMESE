@@ -1,9 +1,12 @@
+# Sobre
+Sistema de entrada e acompanhamento de socioeducandos na Superintendência de Medida Socioeducativa - SUMESE, pertencente à Secretaria de Estado de Prevenção a Violência - SEPREV. O sistema será utilizado por servidores de diferentes áreas para realizar o cadastro, acompanhamento e avaliação de adolescentes em processo de ressocialização.
+
 ## 📖 Como usar
 Siga estas etapas para começar a usar o projeto:
 #### 1. Clone o Projeto
 Para obter uma cópia do projeto em seu computador, execute o comando abaixo para clonar o repositório usando o Git:
 ```
-git clone https://github.com/Radbios/contact-management.git
+git clone https://github.com/SEPREV-SUMESE/Gestao-SUMESE.git
 ```
 > **Observação:** Caso não tenha o **[Git](https://git-scm.com/)**, instale-o.
 
@@ -12,7 +15,7 @@ Vá para a pasta do projeto, faça uma cópia do arquivo `.env.example`, renomei
 
 Você pode usar o seguinte comando para fazer uma cópia do arquivo `.env.example`:
 ```
-cd contact-management
+cd Gestao-SUMESE
 cp .env.example .env
 ```
 Em seguida, abra o arquivo `.env` com um editor de texto e faça as configurações necessárias, como definir variáveis de ambiente, configurar credenciais de banco de dados, etc.
@@ -56,45 +59,32 @@ O sistema possui apenas um tipo de usuário (Padrão)
 
 ## 🚀 Funcionalidades do Sistema  
 
-### 1. Sistema de Autenticação  
+### 1. Sistema de Autenticação
 
-#### 1.1 Login  
-**Alvo:** Padrão  
-Descrição: Permite que o usuário acesse sua conta no sistema.  
+- **Login**  
+  Permite que o usuário acesse sua conta no sistema por meio de credenciais válidas.
 
-#### 1.2 Cadastro  
-**Alvo:** Padrão  
-Descrição: Permite que novos usuários se registrem no sistema.  
+- **Cadastro**  
+  Permite que novos usuários criem uma conta no sistema fornecendo dados básicos.
 
-#### 1.3 Recuperação de Senha  
-**Alvo:** Padrão  
-Descrição: Permite a redefinição de senha em caso de esquecimento.  
+- **Recuperação de Senha**  
+  Permite que o usuário redefina sua senha em caso de esquecimento, geralmente via e-mail.
 
-### 2. Gerenciamento de Contatos  
+---
 
-#### 2.1 Listar Contatos  
-**Alvo:** Padrão  
-Descrição: Exibe a lista de contatos cadastrados pelo usuário.  
+### 2. Gerenciamento de Usuários
 
-#### 2.2 Criar Contato  
-**Alvo:** Padrão  
-Descrição: Permite o cadastro de novos contatos.  
+- **Listar Usuários**  
+  Exibe uma lista de todos os usuários registrados no sistema com filtros e paginação.
 
-#### 2.3 Editar Contato  
-**Alvo:** Padrão  
-Descrição: Permite a edição dos dados de um contato existente.  
+- **Editar Usuário**  
+  Permite atualizar dados de usuários, como nome, e-mail ou permissões.
 
-#### 2.4 Deletar Contato  
-**Alvo:** Padrão  
-Descrição: Permite a exclusão lógica de um contato.  
+- **Remover Usuário**  
+  Permite excluir usuários do sistema de forma permanente ou desativar temporariamente.
 
-#### 2.5 Restaurar Contato  
-**Alvo:** Padrão  
-Descrição: Permite a recuperação de um contato previamente excluído.  
-
-#### 2.6 Exportar Contatos em CSV  
-**Alvo:** Padrão  
-Descrição: Permite a exportação da lista de contatos em um arquivo CSV para backup ou uso externo.  
+- **Exportar Usuários em CSV**  
+  Permite exportar a lista de usuários em formato CSV para fins de backup ou análise externa.
 
 
 ## :computer: Tecnologias Utilizadas
