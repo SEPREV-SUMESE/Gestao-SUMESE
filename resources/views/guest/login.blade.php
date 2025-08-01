@@ -38,10 +38,6 @@
         </div>
       
         <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
-      
-        <div class="text-center">
-          <p>Não está cadastrado? <a href="{{route("register")}}">Registre-se</a></p>
-        </div>
       </form>
     </div>
   </div>
