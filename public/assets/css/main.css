@@ -1,0 +1,20 @@
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+.container-layout {
+    padding-top: 80px !important;
+    padding-bottom: 30px !important;
+    height: 100%;
+}
+
+.my-tooltip{
+    background-color: gray;
+    padding: 1px;
+    width: 20px;
+    border-radius: 50%;
+    text-align: center;
+
+    display: inline-block;
+}
