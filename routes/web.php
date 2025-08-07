@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ExpenseCategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 
 Route::middleware("guest")->group(function(){
@@ -28,4 +27,16 @@ Route::middleware("auth")->group(function(){
 
     Route::get("users/export", [UserController::class, "export_csv"])->name("users.export");
     Route::resource("users", UserController::class)->names("users");
+});
+
+Route::get("/inertia", function () {
+    return Inertia::render("Home", [
+        'message' => 'Welcome to the Inertia.js powered application!'
+    ]);
+});
+
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard/Index', [
+        'message'=> 'dashboard message'
+    ]);
 });
