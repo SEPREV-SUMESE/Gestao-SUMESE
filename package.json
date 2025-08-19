@@ -17,6 +17,7 @@
     "dependencies": {
         "@inertiajs/react": "^2.0.17",
         "react": "^19.1.1",
-        "react-dom": "^19.1.1"
+        "react-dom": "^19.1.1",
+        "ziggy-js": "^2.5.3"
     }
 }

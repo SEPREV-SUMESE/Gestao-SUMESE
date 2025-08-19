@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -28,7 +29,11 @@ class UserController extends Controller
 
         $users = $users->paginate(9);
         $users->appends(['search' => $search, 'status_filter' => $status_filter]);
-        return view("auth.users.index", compact("users", "search", "status_filter"));
+        return Inertia::render('Auth/Users/Index', [
+            'users' => $users,
+            'search' => $search,
+            'status_filter' => $status_filter,
+        ]);
     }
 
     /**

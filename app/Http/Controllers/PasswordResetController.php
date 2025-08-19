@@ -7,6 +7,7 @@ use App\Http\Requests\PasswordUpdateRequest;
 use App\Models\User;
 use App\Services\AuthService;
 use Illuminate\Http\RedirectResponse;
+use Inertia\Inertia;
 
 class PasswordResetController extends Controller
 {
@@ -35,7 +36,7 @@ class PasswordResetController extends Controller
     {
         AuthService::password_reset_token_is_valid($token);
         
-        return view("guest.password-reset", compact("token"));
+        return Inertia::render("Guest/PasswordReset", compact("token"));
     }
     
     /**
