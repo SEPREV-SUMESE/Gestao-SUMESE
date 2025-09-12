@@ -1,0 +1,35 @@
+SUMESE - ER MODEL
+
+General Info:
+
+	Users
+	Roles -> U(?)
+	Docs
+	Socioeducating
+	Centers -> SE
+	Processes (?) -> SE
+	
+Pedagogic Module:
+	
+	PedagogicReport -> SE
+	
+Health Module
+
+	MentalHealth -> SE
+	DangerRisks -> SE
+	HealthIssues -> SE
+	Alergies -> SE
+	
+	HealthUnity -> SE
+	
+	Doctors	
+	Times
+	Doctor_Times -> D, T ->doutor cadastra toda vez os horarios livres ou se não existe uma instancia de tempo, dia e doutor igual ele permite marcar uma consulta
+	Consutation -> SE, DS, HU
+	
+	Remedy
+	SocioeducatingRemedy -> SE, D, R
+	
+	SocioeducatingEmergency -> SE
+	
+	
