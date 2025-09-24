@@ -5,8 +5,8 @@ namespace App\Types;
 class SocioEducatingTypes extends Types
 {
     public const MARITAL_STATUS = ['SOLTEIRO', 'CASADO', 'VIUVO', 'DIVORCIADO'];
-    public const GENDER_IDENTITY = [];
-    public const SEXUAL_ORIENTATION = [];
-    public const RACE = [];
-    public const EDUCATION_LEVEL = [];
+    public const GENDER_IDENTITY = ['CISGENERO', 'TRANSEXUAL', 'TRANSGENERO', 'TRAVESTI', 'NAO BINÁRIO', 'OUTROS'];
+    public const SEXUAL_ORIENTATION = ['HETEROSSEXUAL', 'HOMOSSEXUAL', 'BISSEXUAL', 'ASSEXUAL', 'PANSEXUAL'];
+    public const RACE = ['AMARELA', 'BRANCA', 'PARDA', 'PRETA', 'INDIGENA'];
+    public const EDUCATION_LEVEL = ['ENSINO FUNDAMENTAL INCOMPLETO', 'ENSINO FUNDAMENTAL', 'ENSINO MÉDIO INCOMPLETO', 'ENSINO MÉDIO', 'NÃO ALFABETIZADO'];
 }
