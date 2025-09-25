@@ -33,6 +33,9 @@ return new class extends Migration
             $table->string('mother_name', 55);
             $table->string('phone', 55);
             $table->string('secondary_phone', 55);
+
+            $table->foreignId('center_id')->nullable()->constrained('centers')->nullOnDelete()->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }
