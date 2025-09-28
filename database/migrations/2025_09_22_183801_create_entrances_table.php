@@ -1,6 +1,6 @@
 <?php
 
-use App\Types\DocumentTypes;
+use App\Types\EntranceTypes;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,14 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('socio_educating_documents', function (Blueprint $table) {
+        Schema::create('entrances', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', DocumentTypes::SOCIOEDUCATING_DOCUMENTS_TYPES);
+            $table->enum('correctional_measures', EntranceTypes::CORRECTIONAL_MEASURES_TYPES);
+            $table->timestamp('entrance_date');
+            $table->timestamp('decision_date');
+            $table->text('observations');
+            $table->enum('status', EntranceTypes::STATUS_TYPES);
 
-            $table->foreignId('document_id')->constrained('documents')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('socio_educating_id')->constrained('socio_educatings')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('entrance_id')->constrained('entrances')->nullOnDelete()->cascadeOnUpdate();
-            
+
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('socio_educating_documents');
+        Schema::dropIfExists('entrances');
     }
 };
