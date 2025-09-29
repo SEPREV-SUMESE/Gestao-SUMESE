@@ -19,6 +19,8 @@ return new class extends Migration
             $table->timestamp('decision_date');
             $table->text('observations');
             $table->enum('status', EntranceTypes::STATUS_TYPES);
+            $table->string('shutdown_jurisdiction', 255)->nullable();
+            $table->string('shutdown_technician', 55)->nullable();
 
             $table->foreignId('socio_educating_id')->constrained('socio_educatings')->cascadeOnDelete()->cascadeOnUpdate();
 

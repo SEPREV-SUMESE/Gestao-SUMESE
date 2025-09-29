@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name', 55);
             $table->string('comarca', 55);
             $table->string('address', 255);
+            $table->integer('vacancy')->default(0);
+            $table->integer('capacity')->default(0);
             $table->timestamps();
         });
     }
