@@ -33,6 +33,16 @@ return new class extends Migration
             $table->string('mother_name', 55);
             $table->string('phone', 55);
             $table->string('secondary_phone', 55);
+            $table->enum('status', SocioEducatingTypes::STATUS);
+
+            $table->string('avatar', 55)->nullable();
+            $table->integer('children')->default(0);
+            $table->boolean('has_tatoos')->default(false);
+            $table->boolean('has_banking_account')->default(false);
+            $table->boolean('has_corrective_lenses')->default(false);
+            $table->boolean('needs_special_care')->default(false);
+            $table->boolean('has_scars')->default(false);
+
 
             $table->foreignId('center_id')->nullable()->constrained('centers')->nullOnDelete()->cascadeOnUpdate();
 

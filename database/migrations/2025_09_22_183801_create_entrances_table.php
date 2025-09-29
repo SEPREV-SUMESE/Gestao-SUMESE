@@ -14,11 +14,11 @@ return new class extends Migration
     {
         Schema::create('entrances', function (Blueprint $table) {
             $table->id();
-            $table->enum('correctional_measures', EntranceTypes::CORRECTIONAL_MEASURES_TYPES);
+            $table->enum('correctional_measures', EntranceTypes::CORRECTIONAL_MEASURES);
             $table->timestamp('entrance_date');
             $table->timestamp('decision_date');
             $table->text('observations');
-            $table->enum('status', EntranceTypes::STATUS_TYPES);
+            $table->enum('status', EntranceTypes::STATUS);
             $table->string('shutdown_jurisdiction', 255)->nullable();
             $table->string('shutdown_technician', 55)->nullable();
 

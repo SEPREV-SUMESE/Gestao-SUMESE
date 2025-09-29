@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('socio_educating_processes', function (Blueprint $table) {
             $table->id();
             $table->string('number', 55);
-            $table->enum('type', ProcessTypes::SOCIOEDUCATING_PROCESSES_TYPES);
+            $table->enum('type', ProcessTypes::SOCIOEDUCATING_PROCESSES);
             $table->timestamps();
         });
     }

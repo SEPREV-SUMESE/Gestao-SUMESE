@@ -6,5 +6,5 @@ use App\Types\Types;
 
 class SocioEducatingCentersHistoryTypes extends Types
 {
-    public const REQUEST_STATUS_TYPES = ['EM ABERTO','AUTORIZADA', 'NEGADA'];
+    public const REQUEST_STATUS= ['EM ABERTO','AUTORIZADA', 'NEGADA'];
 }

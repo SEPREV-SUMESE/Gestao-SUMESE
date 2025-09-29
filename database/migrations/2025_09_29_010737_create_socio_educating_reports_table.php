@@ -1,6 +1,6 @@
 <?php
 
-use App\Types\DocumentTypes;
+use App\Types\SocioEducatingReportTypes;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,14 +12,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('socio_educating_documents', function (Blueprint $table) {
+        Schema::create('socio_educating_reports', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', DocumentTypes::SOCIOEDUCATING_DOCUMENTS);
+            $table->enum('type', SocioEducatingReportTypes::TYPES);
+            $table->timestamp('date');
+            $table->text('description');
 
-            $table->foreignId('document_id')->constrained('documents')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('socio_educating_id')->constrained('socio_educatings')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('entrance_id')->constrained('entrances')->nullOnDelete()->cascadeOnUpdate();
-            
+            $table->foreignId('center_id')->constrained('centers')->nullOnDelete()->cascadeOnUpdate();
+
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('socio_educating_documents');
+        Schema::dropIfExists('socio_educating_reports');
     }
 };
