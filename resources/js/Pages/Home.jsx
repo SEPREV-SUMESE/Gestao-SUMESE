@@ -1,4 +1,7 @@
-export default function Home({ message }) {
+import Layout from './Layout'
+
+
+function Home({ message }) {
     return (
         <div className="min-h-screen bg-gradient-to-r from-indigo-500 to-purple-600 flex flex-col items-center justify-center text-white">
             <h1 className="text-4xl font-bold mb-4">Bem-vindo a Home Page</h1>
@@ -10,3 +13,7 @@ export default function Home({ message }) {
         </div>
     )
 }
+
+Home.layout = page => <Layout children={page} title="Dashboard" />
+
+export default Home

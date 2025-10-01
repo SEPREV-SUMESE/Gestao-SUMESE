@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -52,11 +53,12 @@
     --color-cinza-800: #626271;
     --color-cinza-900: #52525d;
     --color-cinza-950: #303036;
-    --sombra: box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.05);
+    --sombra: 0 3px 20px 0 rgba(0, 0, 0, 0.05);
+    --color-text: #2C3E50;
 }
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Mulish', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
     --color-azul-50: #ecfaff;
     --color-azul-100: #d4f2ff;
@@ -102,5 +104,120 @@
     --color-cinza-800: #626271;
     --color-cinza-900: #52525d;
     --color-cinza-950: #303036;
-    --sombra: box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.05);
+    --sombra: 0 3px 20px 0 rgba(0, 0, 0, 0.05);
+    --color-text: #2C3E50;
+
+}
+
+*{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "Mulish", sans-serif;
+}
+html {
+  font-size: 14px;
+}
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+    color: var(--color-text);
+}
+.main-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 20px 40px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1440px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.page-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.table-container {
+    border-radius: 40px;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-cinza-0);
+    border-radius: 40px;
+    overflow: hidden;
+    color: var(--color-text);
+}
+tr{
+    height: 60px;
+}
+td, th {
+    padding: 0 20px;
+}
+tr:not(:last-child) {
+    border-bottom: 1px solid var(--color-cinza-200);
+}
+thead {
+    background-color: var(--color-cinza-50);
+    text-align: left;
+    color: var(--color-cinza-600);
+}
+th {
+    font-weight: 600;
+}
+tbody {
+    font-size: 1rem;
+}
+.input-line {
+    display: flex;
+    gap: 16px;
+}
+.input-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.divisor{
+    display: flex;
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-cinza-200);
+}
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.table-actions-cell {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-delete-button, .table-edit-button {
+    cursor: pointer;
+}
+
+.table-edit-button {
+    color: var(--color-text);
+}
+.table-edit-button:hover {
+    color: var(--color-laranja-500);
+}
+
+.table-delete-button {
+    color: var(--color-text);
+}
+.table-delete-button:hover {
+    color: var(--color-vermelho-700);
 }
