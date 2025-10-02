@@ -7,8 +7,8 @@
     background: rgba(0, 0, 0, 0.3);
     z-index: 1000;
     animation: modalBackdropAnimation 0.3s ease;
-    backdrop-filter: blur(1px);
-    will-change: opacity, backdrop-filter;
+    /* backdrop-filter: blur(1px); */
+    will-change: opacity;
 }
 
 .modal-content {
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    will-change: transform, opacity, filter;
+    will-change: transform, opacity;
 }
 
 
@@ -58,13 +58,13 @@
 }
 
 @keyframes modalBackdropAnimation {
-    from { opacity: 0; backdrop-filter: blur(0px); }
-    to { opacity: 1; backdrop-filter: blur(1px); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes modalContentAnimation {
-    from { transform: scale(0.5); opacity: 0; filter: blur(30px);}
-    to { transform: scale(1); opacity: 1; filter: blur(0px);}
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .dialog-buttons {

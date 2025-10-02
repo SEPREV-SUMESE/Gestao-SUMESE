@@ -59,11 +59,11 @@ export default function Sidebar() {
                 <MenuIcon />
             </button>
             <div className="top-section">
-                <div className="title">
+                <a href='/' className="title">
                     <div className="logo"><LogoSumese /></div>
                     <div className="icone"><IconSumese /></div>
                     <div className="subtitle">Superintendência de Medidas Socioeducativas</div>
-                </div>
+                </a>
                 <div className='divisor'></div>
                 <ul className="nav-links">
                     <SidebarLink href="/" icon="home" label="Início" />

@@ -57,7 +57,7 @@
 }
 
 .btn.terciario:hover {
-    background-color: rgba(0, 123, 255, 0.1);
+    background-color: var(--color-cinza-100)
 }
 
 .btn.danger {

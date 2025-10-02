@@ -199,7 +199,7 @@ tbody {
 
 .table-actions-cell {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     justify-content: center;
     align-items: center;
 }
@@ -210,6 +210,7 @@ tbody {
 
 .table-edit-button {
     color: var(--color-text);
+    padding: 8px;
 }
 .table-edit-button:hover {
     color: var(--color-laranja-500);
@@ -217,6 +218,7 @@ tbody {
 
 .table-delete-button {
     color: var(--color-text);
+    padding: 8px;
 }
 .table-delete-button:hover {
     color: var(--color-vermelho-700);
