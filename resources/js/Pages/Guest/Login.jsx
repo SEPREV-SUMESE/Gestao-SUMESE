@@ -6,7 +6,6 @@ import PasswordInput from '../../Components/PasswordInput'
 import Button from '../../Components/Button'
 import LoginBackground from '../../Components/LoginBackground'
 
-
 export default function Login() {
   const { data, setData, post, processing, errors } = useForm({
     email: '',
@@ -75,7 +74,7 @@ export function ResetPassword() {
 export function RegisterButton() {
   return (
     <form action={route('register')} className='w-full'>
-      <Button type="submit" color={"white"} className={"w-full"}>
+      <Button type="submit" color={"white"} className={"w-full border border-azul-800"}>
         Cadastro
       </Button>
     </form>
