@@ -1,15 +1,14 @@
 <?php
 
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ExpenseCategoryController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PasswordResetController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SocioeducatingController;
-use App\Http\Middleware\RoleMiddleware;
-use Inertia\Inertia;
+
+use App\Http\Controllers\{
+    AuthController,
+    HomeController,
+    PasswordResetController,
+    UserController,
+    SocioeducatingController,
+};
 
 // Rotas para visitantes
 Route::middleware("guest")->group(function () {
