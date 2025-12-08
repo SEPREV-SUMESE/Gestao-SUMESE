@@ -12,7 +12,7 @@ use App\Http\Middleware\RoleMiddleware;
 use Inertia\Inertia;
 
 // Rotas para visitantes
-Route::middleware("guest")->group(function(){
+Route::middleware("guest")->group(function () {
     Route::inertia("login", "Guest/Login")->name("login");
     Route::inertia("register", "Guest/Register")->name("register");
 
@@ -28,10 +28,12 @@ Route::middleware("guest")->group(function(){
 });
 
 // Rotas para usuários autenticados
-Route::middleware("auth")->group(function(){
+Route::middleware("auth")->group(function () {
+    Route::get("/", HomeController::class)->name("dashboard");
+    Route::post("logout", [AuthController::class, "logout"])->name("logout");
 
-
-   // Route::get("/", HomeController::class)->name("dashboard");
+    Route::get("users/export", [UserController::class, "export_csv"])->name("users.export");
+    Route::resource("users", UserController::class)->names("users");
 
     Route::get('/socioeducandos', [SocioeducatingController::class, 'index'])->name('socioeducating.index');
     Route::get('/socioeducandos/edit', [SocioeducatingController::class, 'edit'])->name('socioeducating.edit');
@@ -47,13 +49,6 @@ Route::middleware("auth")->group(function(){
     Route::put('socioeducating/{id}/documents', [SocioeducatingController::class, 'updateDocuments'])->name('socioeducating.documents.update');
 
     Route::get('/socioeducandos/profile/{id}', [SocioeducatingController::class, 'profile'])->name('socioeducating.profile');
-
-
-    Route::get("/", HomeController::class)->name("dashboard");
-    Route::post("logout", [AuthController::class, "logout"])->name("logout");
-
-    Route::get("users/export", [UserController::class, "export_csv"])->name("users.export");
-    Route::resource("users", UserController::class)->names("users");
 });
 /*
 // Rotas para usuários admin

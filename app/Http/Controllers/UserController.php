@@ -14,7 +14,6 @@ class UserController extends Controller
      /**
      * Listar usuários
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Contracts\View\View
      */
     public function index(Request $request)
     {
@@ -28,7 +27,7 @@ class UserController extends Controller
 
         $users = $users->paginate(9);
         $users->appends(['search' => $search, 'status_filter' => $status_filter]);
-        return view("auth.users.index", compact("users", "search", "status_filter"));
+        return inertia("Auth/Users/Index", compact("users", "search", "status_filter"));
     }
 
     /**
@@ -75,7 +74,7 @@ class UserController extends Controller
      * @return Download
      */
     public function export_csv(Request $request)
-    {   
+    {
         $filename =  date("d_m_Y_h_i_s") . '_export_users';
         return response()->stream(function() use($request){
             $users = User::query();
