@@ -32,6 +32,7 @@ Route::middleware("auth")->group(function () {
     Route::post("logout", [AuthController::class, "logout"])->name("logout");
 
     Route::get("users/export", [UserController::class, "export_csv"])->name("users.export");
+    Route::put("users/{user}/toggle_status", [UserController::class, "toggle_status"])->name("users.toggle_status");
     Route::resource("users", UserController::class)->names("users");
 
     Route::get('/socioeducandos', [SocioEducatingController::class, 'index'])->name('socioeducating.index');

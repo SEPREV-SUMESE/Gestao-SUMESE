@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
-     /**
+    /**
      * Listar usuários
      * @param \Illuminate\Http\Request $request
      */
@@ -58,7 +58,7 @@ class UserController extends Controller
     }
 
     /**
-     * Deletar usuário (Logicamente)
+     * Deletar usuário
      * @param User|Model|string $user
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -76,7 +76,7 @@ class UserController extends Controller
     public function export_csv(Request $request)
     {
         $filename =  date("d_m_Y_h_i_s") . '_export_users';
-        return response()->stream(function() use($request){
+        return response()->stream(function () use ($request) {
             $users = User::query();
 
             $search ??= $request->search;
@@ -87,12 +87,27 @@ class UserController extends Controller
 
             $users = $users->get(["name", "email", "created_at"])->toArray();
 
-            foreach($users as $key => $user){
-                echo $key+1 . ";" . implode(";", array_values($user)) . "\n";
+            foreach ($users as $key => $user) {
+                echo $key + 1 . ";" . implode(";", array_values($user)) . "\n";
             }
         }, 200, [
             "Content-Type" => "text/csv",
             "Content-Disposition" => "attachment; filename=$filename",
         ]);
+    }
+
+    /**
+     * Trocar status do usuário (ativo/inativo)
+     * @param User|Model|string $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function toggle_status(Request $request, User $user)
+    {
+        $status = $user->update(['is_active' => !$user->is_active]);
+
+        if ($status)
+            return redirect()->back()->with('success', 'Status alterado com sucesso');
+
+        return redirect()->back()->with('error', 'Erro inesperado, status não atualizado');
     }
 }
