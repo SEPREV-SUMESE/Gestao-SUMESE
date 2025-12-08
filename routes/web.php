@@ -7,7 +7,7 @@ use App\Http\Controllers\{
     HomeController,
     PasswordResetController,
     UserController,
-    SocioeducatingController,
+    SocioEducatingController,
 };
 
 // Rotas para visitantes
@@ -34,20 +34,20 @@ Route::middleware("auth")->group(function () {
     Route::get("users/export", [UserController::class, "export_csv"])->name("users.export");
     Route::resource("users", UserController::class)->names("users");
 
-    Route::get('/socioeducandos', [SocioeducatingController::class, 'index'])->name('socioeducating.index');
-    Route::get('/socioeducandos/edit', [SocioeducatingController::class, 'edit'])->name('socioeducating.edit');
+    Route::get('/socioeducandos', [SocioEducatingController::class, 'index'])->name('socioeducating.index');
+    Route::get('/socioeducandos/edit', [SocioEducatingController::class, 'edit'])->name('socioeducating.edit');
 
-    Route::get('/socioeducandos/register-step-1', [SocioeducatingController::class, 'register_step_1'])->name('socioeducating.register_step_1');
-    Route::post('/socioeducandos/register-step-1', [SocioeducatingController::class, 'register_step_1_store'])->name('socioeducating.register_step_1_store');
+    Route::get('/socioeducandos/register-step-1', [SocioEducatingController::class, 'register_step_1'])->name('socioeducating.register_step_1');
+    Route::post('/socioeducandos/register-step-1', [SocioEducatingController::class, 'register_step_1_store'])->name('socioeducating.register_step_1_store');
 
 
-    Route::get('socioeducating/{id}/register-step-2', [SocioeducatingController::class, 'register_step_2'])->name('socioeducating.register_step_2');
-    Route::post('socioeducating/{id}/register-step-2', [SocioeducatingController::class, 'register_step_2_store'])->name('socioeducating.register_step_2_store');
+    Route::get('socioeducating/{id}/register-step-2', [SocioEducatingController::class, 'register_step_2'])->name('socioeducating.register_step_2');
+    Route::post('socioeducating/{id}/register-step-2', [SocioEducatingController::class, 'register_step_2_store'])->name('socioeducating.register_step_2_store');
 
-    Route::get('socioeducating/{id}/documents/edit', [SocioeducatingController::class, 'editDocuments'])->name('socioeducating.documents.edit');
-    Route::put('socioeducating/{id}/documents', [SocioeducatingController::class, 'updateDocuments'])->name('socioeducating.documents.update');
+    Route::get('socioeducating/{id}/documents/edit', [SocioEducatingController::class, 'editDocuments'])->name('socioeducating.documents.edit');
+    Route::put('socioeducating/{id}/documents', [SocioEducatingController::class, 'updateDocuments'])->name('socioeducating.documents.update');
 
-    Route::get('/socioeducandos/profile/{id}', [SocioeducatingController::class, 'profile'])->name('socioeducating.profile');
+    Route::get('/socioeducandos/profile/{id}', [SocioEducatingController::class, 'profile'])->name('socioeducating.profile');
 });
 /*
 // Rotas para usuários admin
@@ -55,13 +55,13 @@ Route::middleware(['auth', RoleMiddleware::class.':admin'])->group(function () {
 
 
 
-    Route::resource('socioeducating', SocioeducatingController::class);
+    Route::resource('socioeducating', SocioEducatingController::class);
 
     // Documentos
-    Route::get('socioeducating/{id}/documents', [SocioeducatingController::class, 'documents'])->name('socioeducating.documents');
-    Route::post('socioeducating/{id}/documents', [SocioeducatingController::class, 'storeDocuments'])->name('socioeducating.storeDocuments');
+    Route::get('socioeducating/{id}/documents', [SocioEducatingController::class, 'documents'])->name('socioeducating.documents');
+    Route::post('socioeducating/{id}/documents', [SocioEducatingController::class, 'storeDocuments'])->name('socioeducating.storeDocuments');
 
-    Route::get('socioeducating/{id}/documents/edit', [SocioeducatingController::class, 'editDocuments'])->name('socioeducating.documents.edit');
-    Route::put('socioeducating/{id}/documents', [SocioeducatingController::class, 'updateDocuments'])->name('socioeducating.documents.update');
+    Route::get('socioeducating/{id}/documents/edit', [SocioEducatingController::class, 'editDocuments'])->name('socioeducating.documents.edit');
+    Route::put('socioeducating/{id}/documents', [SocioEducatingController::class, 'updateDocuments'])->name('socioeducating.documents.update');
 });
  */

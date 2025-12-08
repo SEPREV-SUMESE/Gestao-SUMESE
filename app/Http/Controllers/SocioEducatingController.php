@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Socioeducating;
 use App\Models\SocioeducatingDocument;
 
-class SocioeducatingController extends Controller
+class SocioEducatingController extends Controller
 {
 
     public function index(Request $request)
@@ -30,7 +30,7 @@ class SocioeducatingController extends Controller
 
         $breadcrumbs = [
             [
-                'name' => 'Socioeducandos', 
+                'name' => 'Socioeducandos',
                 'link' => route('socioeducating.index')
             ],
             [
@@ -84,7 +84,7 @@ public function register_step_1_store(Request $request)
     {
         $breadcrumbs = [
             [
-                'name' => 'Socioeducandos', 
+                'name' => 'Socioeducandos',
                 'link' => route('socioeducating.index')
             ],
             [
@@ -134,7 +134,7 @@ public function register_step_1_store(Request $request)
 
         $breadcrumbs = [
             [
-                'name' => 'Socioeducandos', 
+                'name' => 'Socioeducandos',
                 'link' => route('socioeducating.index')
             ],
             [
@@ -151,7 +151,7 @@ public function register_step_1_store(Request $request)
             'socioeducando' => $socioeducando, 'breadcrumbs' => $breadcrumbs
         ]);
     }
-    
+
     public function edit($id)
     {
         $socioeducating = Socioeducating::findOrFail($id);
