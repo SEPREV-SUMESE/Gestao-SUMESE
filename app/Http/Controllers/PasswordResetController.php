@@ -34,10 +34,10 @@ class PasswordResetController extends Controller
     public function password_reset(string $token)
     {
         AuthService::password_reset_token_is_valid($token);
-        
-        return view("guest.password-reset", compact("token"));
+
+        return inertia("Guest/PasswordReset", compact("token"));
     }
-    
+
     /**
      * Atualizar senha
      * @param \App\Http\Requests\PasswordUpdateRequest $request

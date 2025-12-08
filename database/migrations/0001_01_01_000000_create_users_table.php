@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->boolean('is_admin')->default(false);
             $table->string('name', 55);
             $table->string('email', 55)->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->timestamps();
             $table->rememberToken();
 
-            $table->foreignId('role_id')->constrained('roles')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignId('role_id')->nullable()->constrained('roles')->nullOnDelete()->cascadeOnUpdate();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

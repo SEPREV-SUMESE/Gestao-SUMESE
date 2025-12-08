@@ -13,18 +13,20 @@ use Inertia\Inertia;
 
 // Rotas para visitantes
 Route::middleware("guest")->group(function(){
-    Route::inertia("login", "Guest/Login")->name("login");
-    Route::inertia("register", "Guest/Register")->name("register");
+    Route::view("login", "guest.login")->name("login");
+    Route::view("register", "guest.register")->name("register");
 
     Route::post("register", [UserController::class, "register"])->name("user.register");
     Route::post("authenticate", [AuthController::class, "authenticate"])->name("authenticate");
 
-    Route::inertia("forgot_password", "Guest/ForgotPassword")->name("forgot_password");
+    Route::view("forgot_password", "guest.forgot-password")->name("forgot_password");
     Route::post("password-request", [PasswordResetController::class, 'password_request'])->name('password.request');
     Route::get('password-reset/{token}', [PasswordResetController::class, 'password_reset'])->name('password.reset');
     Route::put("password-update", [PasswordResetController::class, 'password_update'])->name('password.update');
 
-    Route::inertia('/register', 'Guest/Register')->name('register');
+    Route::get('/register', function() {
+        return Inertia::render('Guest/Register');
+    })->name('register');
 });
 
 // Rotas para usuários autenticados
