@@ -1,15 +1,9 @@
-@extends("layouts.main")
+@extends('layouts.main')
 
-@section("title", "Página inicial")
+@section('title', 'Dashboard')
 
-@section("css")
-<link rel="stylesheet" href="{{asset("assets/css/home.css")}}">
-@endsection
+@section('page-title', 'Dashboard')
 
-@section("container")
-  
-@endsection
-
-@section("js")
-    
+@section('content')
+<h1>Bem-vindo ao Dashboard!</h1>
 @endsection

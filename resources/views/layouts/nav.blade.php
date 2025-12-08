@@ -1,65 +1,53 @@
-<nav  class="navbar navbar-expand-lg navbar-light bg-body-tertiary px-5 position-absolute top-0 start-0 w-100" style="z-index: 1030;">
-    <div class="container-fluid">
-      <button
-        data-mdb-collapse-init
-        class="navbar-toggler"
-        type="button"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        Expandir
+<!-- Main sidebar container -->
+<div class="sidebar" id="sidebar">
+    <button class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
     </button>
-  
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <a class="navbar-brand mt-2 mt-lg-0" href="{{route("dashboard")}}">
-          {{config("app.name")}}
-        </a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="{{route("dashboard")}}">Início</a>
-          </li>
-          @if (auth()->user()->is_admin)
-            <li class="nav-item">
-              <a class="nav-link" href="{{route("users.index")}}">Usuários</a>
-            </li>
-          @endif
-        </ul>
-      </div>
-  
-      <div class="d-flex align-items-center">
-        <a class="text-reset me-3" href="#">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-        <div class="dropdown">
-          <a
-            data-mdb-dropdown-init
-            class="dropdown-toggle d-flex align-items-center text-dark"
-            href="#"
-            role="button"
-            aria-expanded="false"
-          >
-            {{auth()->user()->name}}
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-          >
-            {{-- <li>
-              <a class="dropdown-item" href="#">My profile</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Settings</a>
-            </li> --}}
-            <li>
-                <form action="{{route("logout")}}" method="POST">
-                    @csrf
-                    @method("POST")
-                    <button type="submit" class="dropdown-item">Sair</button>
-                </form>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+    <div class="sidebar-header">
+        <img src="{{ asset('assets/img/logo-full.svg') }}" alt="SUMESE Logo" class="logo-full">
     </div>
-  </nav>
+
+        <!-- Sidebar menu -->
+    <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+            <a href="{{ route('dashboard') }}"
+            class="sidebar-menu-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                <i class="fas fa-home icon"></i> <span class="label">Início</span>
+            </a>
+        </li>
+
+        <li class="sidebar-menu-item">
+            <a href="{{ route('socioeducating.index') }}"
+            class="sidebar-menu-link {{ request()->routeIs('socioeducating.*') ? 'active' : '' }}">
+                <i class="fas fa-users icon"></i> <span class="label">Socioeducandos</span>
+            </a>
+        </li>
+
+        <li class="sidebar-menu-item">
+            <a href="#"
+            class="sidebar-menu-link {{ request()->is('unidades*') ? 'active' : '' }}">
+                <i class="fas fa-building icon"></i> <span class="label">Unidades</span>
+            </a>
+        </li>
+
+        <li class="sidebar-menu-item">
+            <a href="#"
+            class="sidebar-menu-link {{ request()->is('usuarios*') ? 'active' : '' }}">
+                <i class="fas fa-user-plus icon"></i> <span class="label">Usuários</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Sidebar footer -->
+    <div class="sidebar-footer">
+        <a href="#" class="admin-button">
+            <span class="label">Administrador</span>
+            <i class="icon-arrow-bg"></i>
+        </a>
+        <p class="text-muted small-text">Secretaria de Estado de Prevenção à Violência</p>
+        <div class="logo-container">
+            <img src="{{ asset('assets/img/logo-alagoas.svg') }}" alt="Alagoas Logo">
+        </div>
+    </div>
+</div>
