@@ -22,6 +22,10 @@ Route::middleware("guest")->group(function(){
     Route::post("password-request", [PasswordResetController::class, 'password_request'])->name('password.request');
     Route::get('password-reset/{token}', [PasswordResetController::class, 'password_reset'])->name('password.reset');
     Route::put("password-update", [PasswordResetController::class, 'password_update'])->name('password.update');
+
+    Route::get('/register', function() {
+        return Inertia::render('Guest/Register');
+    })->name('register');
 });
 
 Route::middleware("auth")->group(function(){
