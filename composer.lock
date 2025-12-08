@@ -2641,7 +2641,7 @@
             "description": "Syntax highlighting using TextMate grammars in PHP.",
             "support": {
                 "issues": "https://github.com/phikiphp/phiki/issues",
-                "source": "https://github.com/phikiphp/phiki/tree/v2.0.4"
+                "source": "https://github.com/phikiphp/phiki/tree/v2.0.4,
             },
             "funding": [
                 {
