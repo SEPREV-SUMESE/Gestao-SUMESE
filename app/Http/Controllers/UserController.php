@@ -25,7 +25,7 @@ class UserController extends Controller
         $users->filter($status_filter);
         $users->search($search);
 
-        $users = $users->paginate(9);
+        $users = $users->paginate();
         $users->appends(['search' => $search, 'status_filter' => $status_filter]);
         return inertia("Auth/Users/Index", compact("users", "search", "status_filter"));
     }

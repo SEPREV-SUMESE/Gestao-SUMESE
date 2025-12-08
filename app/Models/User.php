@@ -28,6 +28,8 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
+        'is_active',
+        'role_id',
     ];
 
     /**
@@ -94,8 +96,8 @@ class User extends Authenticatable
         }
     }
 
-    public function accounts()
+    public function role()
     {
-        return $this->hasMany(Account::class, "user_id");
+        return $this->belongsTo(Role::class, 'role_id');
     }
 }
